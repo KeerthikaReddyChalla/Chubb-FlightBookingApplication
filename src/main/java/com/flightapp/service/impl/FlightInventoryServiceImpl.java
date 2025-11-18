@@ -1,6 +1,7 @@
 package com.flightapp.service.impl;
 
 import com.flightapp.dto.InventoryRequest;
+import java.util.*;
 import com.flightapp.model.Airline;
 import com.flightapp.model.FlightInventory;
 import com.flightapp.repository.AirlineRepository;
@@ -55,4 +56,9 @@ public class FlightInventoryServiceImpl implements FlightInventoryService {
 
         return inventoryRepo.save(inv);
     }
+    @Override
+    public List<FlightInventory> searchFlights(String origin, String destination, String date) {
+        return inventoryRepo.findByOriginAndDestination(origin, destination);
+    }
+
 }
